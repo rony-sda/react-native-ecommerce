@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-dim": "#63f0af",
+                    "outline": "#767575",
+                    "error-dim": "#d7383b",
+                    "surface-variant": "#262626",
+                    "on-background": "#ffffff",
+                    "outline-variant": "#484847",
+                    "on-error": "#490006",
+                    "error-container": "#9f0519",
+                    "on-secondary": "#005d48",
+                    "inverse-primary": "#006d47",
+                    "on-surface-variant": "#adaaaa",
+                    "on-tertiary-container": "#004b56",
+                    "tertiary-container": "#00e0fd",
+                    "secondary": "#5efcce",
+                    "tertiary-dim": "#00d1ec",
+                    "primary-container": "#0eb77b",
+                    "inverse-surface": "#fcf9f8",
+                    "secondary-dim": "#4cedc1",
+                    "secondary-fixed": "#5efcce",
+                    "primary": "#73ffbc",
+                    "surface-container-low": "#131313",
+                    "surface-container-highest": "#262626",
+                    "on-secondary-fixed": "#004938",
+                    "on-surface": "#ffffff",
+                    "on-primary-fixed-variant": "#006b46",
+                    "surface-container-high": "#20201f",
+                    "on-tertiary-fixed-variant": "#005561",
+                    "on-secondary-container": "#dffff1",
+                    "surface-tint": "#73ffbc",
+                    "on-tertiary-fixed": "#00363e",
+                    "on-error-container": "#ffa8a3",
+                    "on-tertiary": "#005561",
+                    "surface-container-lowest": "#000000",
+                    "tertiary-fixed-dim": "#00d1ec",
+                    "surface-container": "#1a1a1a",
+                    "tertiary": "#7de9ff",
+                    "surface-dim": "#0e0e0e",
+                    "background": "#0e0e0e",
+                    "secondary-fixed-dim": "#4cedc1",
+                    "on-primary-container": "#002918",
+                    "primary-fixed": "#73ffbc",
+                    "primary-fixed-dim": "#63f0af",
+                    "secondary-container": "#006b54",
+                    "on-primary": "#00603e",
+                    "surface": "#0e0e0e",
+                    "error": "#ff716c",
+                    "tertiary-fixed": "#00e0fd",
+                    "on-secondary-fixed-variant": "#006851",
+                    "inverse-on-surface": "#565555",
+                    "surface-bright": "#2c2c2c",
+                    "on-primary-fixed": "#004b30"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-only {
+            background: linear-gradient(to bottom, rgba(14, 14, 14, 0.9) 0%, rgba(14, 14, 14, 0) 100%);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center text-[#3CCF91] hover:text-[#73ffbc] transition-colors scale-95 active:duration-150 cursor-pointer">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<h1 class="font-['Plus_Jakarta_Sans'] tracking-widest uppercase text-sm font-bold text-[#3CCF91]">FEATURED BRANDS</h1>
+<div class="flex items-center text-[#3CCF91] hover:text-[#73ffbc] transition-colors scale-95 active:duration-150 cursor-pointer">
+<span class="material-symbols-outlined">search</span>
+</div>
+</nav>
+<main class="pt-24 pb-32 px-6">
+<!-- Hero Section / Editorial Header -->
+<header class="mb-12">
+<div class="flex flex-col gap-2">
+<span class="text-primary font-headline font-bold uppercase tracking-[0.2em] text-xs">Curated Selection</span>
+<h2 class="text-5xl font-headline font-extrabold tracking-tighter leading-none mt-2">
+                    THE <span class="text-transparent bg-clip-text bg-gradient-to-br from-primary to-primary-container">ELITE</span><br/>COLLECTIVE
+                </h2>
+<p class="text-on-surface-variant mt-4 max-w-[280px] leading-relaxed">Defining the future of precision performance and aesthetic mastery.</p>
+</div>
+</header>
+<!-- Bento Grid / Brand Cards -->
+<div class="grid grid-cols-2 gap-4">
+<!-- Brand 1: Aero (Large Highlight) -->
+<div class="col-span-2 relative group overflow-hidden rounded-xl bg-surface-container-low h-64 flex flex-col justify-end p-6 border-none">
+<div class="absolute inset-0 z-0">
+<img alt="Aerodynamic sports car" class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" data-alt="Sleek silver aerodynamic sports car in a minimalist dark studio with sharp green rim lighting and smoke effects" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG3Jgr3Nv1QviazGbOk54rURz-ch1zaJtSFY08Ksb8VupWXlIqNSU-rzBivc5DmZgcJFH8Iba0tNKnx3tuwYtkBcYwH-To_mMwx8mz_kUNnjfQE0Mkqm-kl4O77MxK73bbF_iz_qBgCP43G2ktkx6KeoECL13-hs9pSuKHRuFeJD_7Z0BKsWRSVcpi0owC36GXgAQn8O79iyGEFP5XtE9QxViBCsYNIG4iWOE1wAhN2Ec_acGrzhBUG04y3JLLIlHvxWOzL9WXGg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent"></div>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-2">
+<div class="w-8 h-1 bg-primary"></div>
+<span class="font-headline font-black text-2xl tracking-tighter italic">AERO</span>
+</div>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mb-4">Precision Dynamics</p>
+<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container px-6 py-3 rounded-lg font-headline font-bold text-xs uppercase tracking-widest shadow-[0_0_15px_rgba(115,255,188,0.2)] active:scale-95 transition-all">
+                        View Collection
+                    </button>
+</div>
+</div>
+<!-- Brand 2: Studio -->
+<div class="col-span-1 relative group overflow-hidden rounded-xl bg-surface-container-high h-72 flex flex-col justify-end p-5">
+<div class="absolute inset-0 z-0">
+<img alt="Minimalist tech hardware" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="Extreme close up of minimalist brushed aluminum tech hardware with subtle emerald green indicator light in dark environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbRoQvjQDHn9LMrrTdpepTKM98zke96UlOUUrAjseuFVXaHKE7AvoKKJG9gPgZKxVL2yrgDyNrD0Nji2TXLqMWO-ywAK5xU8Zoh1vL0_zJ8nyCQy0rYT1skQ4FkqzSOGcXUDuUK2wqtPLXPkQhdAhb__AO7Wcth0ObxeqAJj-TYH1TdzmG3n_OxMh1r-Aq9hUAgclQenUZ3AotXMrRp-t_CDEOZadGDKJLrJvkLQDkcPebf_uUfgajuxGOeA_AsZnlQtzuQxXxpw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="font-headline font-bold text-lg tracking-tight block">STUDIO</span>
+<span class="text-[10px] text-primary-dim uppercase tracking-widest block mb-3">Architectural Sound</span>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 group/btn">
+                        Explore <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Brand 3: Stealth -->
+<div class="col-span-1 relative group overflow-hidden rounded-xl bg-surface-container-high h-72 flex flex-col justify-end p-5">
+<div class="absolute inset-0 z-0">
+<img alt="Matte black motorcycle" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="Stealthy matte black custom motorcycle silhouette against a dark textured wall with high contrast rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDnCvKCUcGKetY6f0Nm-lbMAjDGYqofTPkCW_4cXkVQUzH5nGZYuCow0_SPS7OLJGlFzkX9xxZLVBX7SsHQV6AM_D5UH7GetLDqd0AUtjb3suVkJ38MZnjPDeq7jYsfgTbqjVxXPlcvdsNPcF_M3Rs2DQc_lP1RR7WRYrzXMh3Eie-2EExZBzEzgeL7QtefT4Un8qSvu52l0pPn2y_oQlalx2tdN-gH8QFIQn8P99eY9a8lwn5imIXxQkrxJ_nTnTa9VeT5iIUu3A"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="font-headline font-bold text-lg tracking-tight block">STEALTH</span>
+<span class="text-[10px] text-primary-dim uppercase tracking-widest block mb-3">Urban Shadow</span>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 group/btn">
+                        Explore <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Brand 4: Evo -->
+<div class="col-span-1 relative group overflow-hidden rounded-xl bg-surface-container-high h-72 flex flex-col justify-end p-5 mt-4">
+<div class="absolute inset-0 z-0">
+<img alt="Sport shoes" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="High-performance running shoe with carbon fiber texture and glowing green accents on a dark reflective surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2FeInNa75BmsPp3z5EGgGym2174-n0sbZ6SxK2Mm2v0DzKdPujJMM7BGReSlqPzgWM5TdSqhjHXHKbllVUtzq-1vXBfnW7-C1ERalI_EV4ZLwOwm0boUFtiY1UZ9DT8VwYC7ATblmM50A4RGQEpQqWKS49B2HLBBZdJpfS0VgzQDRZuFbLGuQLCiJKtfMLZIRPfDe8MmT1vTrGIH8Qn7_hfSKcVJe6QyFCutcT8vJr2wvL6RNePr4v7yYCIL-CsSpnbR2ZyAHSA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="font-headline font-bold text-lg tracking-tight block">EVO</span>
+<span class="text-[10px] text-primary-dim uppercase tracking-widest block mb-3">Kinetic Power</span>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 group/btn">
+                        Explore <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Brand 5: Vortex -->
+<div class="col-span-1 relative group overflow-hidden rounded-xl bg-surface-container-high h-72 flex flex-col justify-end p-5 mt-4">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury watch" class="w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700" data-alt="Luxury timepiece with exposed mechanical gears and glowing emerald luminescent markings in a dark moody setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzp1oaIpne0aXSjROB_vWm2z4XQBzGM4384bkOvL0YgbbUmrnR1o0lFZtzRqOmfk64A6wdnGyrh90w8Hf4NPYvYUbMfFZACApFhnZ3Wg6m9Wpt0vl1I5-gnISpFRX7XK_SGxEQjJtG_OihZBClVq72gE_ckUp437urKAitNUyCqr9u2ddn97pCOjqkBRgmVrsrpAIYovRsFfEOSNPul_aw5F9RpcfK4UJlupywRlEVzfEBx1PbFzvk-24XAwxiVf4xe3eNvnPLaQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-high to-transparent"></div>
+</div>
+<div class="relative z-10">
+<span class="font-headline font-bold text-lg tracking-tight block">VORTEX</span>
+<span class="text-[10px] text-primary-dim uppercase tracking-widest block mb-3">Infinite Flow</span>
+<button class="text-primary text-[10px] font-bold uppercase tracking-widest flex items-center gap-1 group/btn">
+                        Explore <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Editorial Quote Section -->
+<section class="mt-16 py-12 border-t border-outline-variant/10 text-center">
+<span class="material-symbols-outlined text-primary-dim opacity-40 text-4xl mb-6">format_quote</span>
+<p class="font-headline text-2xl font-light italic text-on-surface tracking-tight max-w-xs mx-auto">
+                "True luxury isn't heard, it's <span class="text-primary not-italic font-bold">felt</span>."
+            </p>
+<p class="text-[10px] uppercase tracking-[0.3em] text-on-surface-variant mt-4">The Expo Philosophy</p>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full flex justify-around items-center px-8 pb-8 pt-4 bg-[#262626]/70 backdrop-blur-2xl z-50 rounded-t-[2rem] shadow-[0_-4px_24px_rgba(115,255,188,0.08)]">
+<!-- Dashboard -->
+<div class="flex items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all scale-90 active:duration-75 cursor-pointer">
+<span class="material-symbols-outlined">grid_view</span>
+</div>
+<!-- Shop (ACTIVE) -->
+<div class="flex items-center justify-center bg-gradient-to-br from-[#73ffbc] to-[#0eb77b] text-[#0e0e0e] rounded-full p-3 scale-110 shadow-[0_0_15px_rgba(115,255,188,0.4)] cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_mall</span>
+</div>
+<!-- Favorites -->
+<div class="flex items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all scale-90 active:duration-75 cursor-pointer">
+<span class="material-symbols-outlined">favorite</span>
+</div>
+<!-- Profile -->
+<div class="flex items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all scale-90 active:duration-75 cursor-pointer">
+<span class="material-symbols-outlined">person</span>
+</div>
+</nav>
+</body></html>
