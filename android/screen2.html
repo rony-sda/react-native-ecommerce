@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#00603e",
+                        "primary-dim": "#63f0af",
+                        "on-secondary": "#005d48",
+                        "error": "#ff716c",
+                        "on-error-container": "#ffa8a3",
+                        "on-primary-fixed-variant": "#006b46",
+                        "tertiary": "#7de9ff",
+                        "surface-dim": "#0e0e0e",
+                        "surface-bright": "#2c2c2c",
+                        "outline-variant": "#484847",
+                        "tertiary-dim": "#00d1ec",
+                        "tertiary-fixed-dim": "#00d1ec",
+                        "secondary-fixed": "#5efcce",
+                        "on-primary-fixed": "#004b30",
+                        "tertiary-container": "#00e0fd",
+                        "on-background": "#ffffff",
+                        "error-dim": "#d7383b",
+                        "on-secondary-fixed": "#004938",
+                        "background": "#0e0e0e",
+                        "on-tertiary": "#005561",
+                        "on-surface": "#ffffff",
+                        "surface-variant": "#262626",
+                        "outline": "#767575",
+                        "on-error": "#490006",
+                        "on-surface-variant": "#adaaaa",
+                        "surface-container-highest": "#262626",
+                        "surface-container-high": "#20201f",
+                        "primary": "#73ffbc",
+                        "inverse-on-surface": "#565555",
+                        "on-tertiary-container": "#004b56",
+                        "secondary-fixed-dim": "#4cedc1",
+                        "primary-fixed": "#73ffbc",
+                        "on-tertiary-fixed-variant": "#005561",
+                        "secondary": "#5efcce",
+                        "secondary-dim": "#4cedc1",
+                        "surface-container": "#1a1a1a",
+                        "error-container": "#9f0519",
+                        "on-tertiary-fixed": "#00363e",
+                        "primary-container": "#0eb77b",
+                        "surface": "#0e0e0e",
+                        "inverse-surface": "#fcf9f8",
+                        "secondary-container": "#006b54",
+                        "on-primary-container": "#002918",
+                        "on-secondary-fixed-variant": "#006851",
+                        "inverse-primary": "#006d47",
+                        "surface-tint": "#73ffbc",
+                        "tertiary-fixed": "#00e0fd",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed-dim": "#63f0af",
+                        "surface-container-low": "#131313",
+                        "on-secondary-container": "#dffff1"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "3xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #0e0e0e;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-header {
+            background: rgba(14, 14, 14, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #73ffbc 0%, #0eb77b 100%);
+        }
+        .spotlight-glow {
+            box-shadow: 0 0 40px rgba(115, 255, 188, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center">
+<!-- Header / Brand Anchor -->
+<header class="fixed top-0 w-full z-50 glass-header flex items-center justify-between px-6 h-16">
+<div class="text-xl font-extrabold tracking-tighter text-primary font-headline">Expo Shop</div>
+<div class="w-10 h-10 flex items-center justify-center rounded-full surface-container-highest">
+<span class="material-symbols-outlined text-on-surface-variant">close</span>
+</div>
+</header>
+<main class="flex-1 w-full max-w-md px-6 pt-24 pb-12 flex flex-col justify-center">
+<!-- Hero Section -->
+<div class="mb-10 text-left">
+<h1 class="text-4xl font-extrabold font-headline tracking-tight text-on-background mb-2">Welcome Back</h1>
+<p class="text-on-surface-variant font-body">Enter your details to access your curated gallery.</p>
+</div>
+<!-- Toggle Switch -->
+<!-- Auth Card -->
+<div class="bg-surface-container-high rounded-3xl p-8 spotlight-glow border border-white/[0.03]">
+<!-- Social Logins -->
+<div class="flex flex-col gap-4">
+<button class="flex items-center justify-center gap-3 bg-surface-container-highest py-4 rounded-xl border border-white/[0.05] hover:bg-surface-bright transition-colors w-full">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+<span class="text-base font-semibold">Continue with Google</span>
+</button>
+<button class="flex items-center justify-center gap-3 bg-surface-container-highest py-4 rounded-xl border border-white/[0.05] hover:bg-surface-bright transition-colors w-full">
+<svg class="w-6 h-6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.365 14.12c-.008-3.085 2.518-4.562 2.634-4.636-1.428-2.09-3.64-2.375-4.437-2.42-1.898-.19-3.708 1.118-4.673 1.118-.962 0-2.463-1.09-4.04-1.06-2.052.028-3.945 1.192-5.008 3.04-2.146 3.716-.548 9.215 1.542 12.235 1.026 1.48 2.25 3.14 3.824 3.085 1.517-.057 2.086-.977 3.916-.977 1.82 0 2.348.977 3.924.94 1.62-.028 2.685-1.492 3.696-2.97 1.168-1.702 1.648-3.354 1.67-3.442-.036-.016-3.04-1.166-3.048-4.914zM14.673 4.41c.833-1.008 1.393-2.408 1.24-3.81-1.192.048-2.658.793-3.518 1.82-.76.88-1.434 2.308-1.258 3.684 1.332.103 2.698-.68 3.536-1.694z" fill="#ffffff"></path>
+</svg>
+<span class="text-base font-semibold">Continue with Apple</span>
+</button>
+</div>
+</div>
+<!-- Promotional Area (Bento-style snippet) -->
+<div class="mt-12 grid grid-cols-2 gap-4">
+<div class="col-span-2 relative h-32 rounded-3xl overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-60" data-alt="cinematic close-up of premium tech gadgets on a dark sleek surface with emerald green neon accent lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDwlZGHhn_7g0-x-DBx7e2ePayCVwzrXpWpuomspF-0BS3OEjP5Tz2nLRyVEkElNgvDTX0IbX584WD_v6XaWMryWiY3jI0RZpg3uc8U06w8PM1P7aaQAmnLqzcC2s3XIHb7jcr6RpdqV-JyouuppOBcVA7u5ucJomiEiZ8RiOdNHeBBLbpaX04R5-MqoP_IfCtipOajqL4aq1ZX9RglKJX0uDe4BjLCOGZMVTd2_LTq7YWpWZuY_NUJLYvpqf6lrp8q2GdgizbZw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent"></div>
+<div class="absolute bottom-4 left-4 right-4">
+<p class="text-xs font-bold text-primary-dim uppercase tracking-[0.2em] mb-1">New Arrival</p>
+<h3 class="text-lg font-bold font-headline leading-tight">Emerald Series 2024</h3>
+</div>
+</div>
+<div class="bg-surface-container-low p-5 rounded-3xl flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">verified</span>
+<p class="text-[10px] font-bold text-on-surface uppercase tracking-widest leading-tight">Curated<br/>Authenticity</p>
+</div>
+<div class="bg-surface-container-low p-5 rounded-3xl flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-primary mb-2">local_shipping</span>
+<p class="text-[10px] font-bold text-on-surface uppercase tracking-widest leading-tight">Global<br/>Exhibition</p>
+</div>
+</div>
+<!-- Footer Help -->
+<footer class="mt-12 text-center">
+<p class="text-[11px] text-on-surface-variant font-medium">
+                By continuing, you agree to Expo Shop's 
+                <a class="text-on-surface underline underline-offset-4 decoration-primary/30" href="#">Terms of Service</a> 
+                and <a class="text-on-surface underline underline-offset-4 decoration-primary/30" href="#">Privacy Policy</a>.
+            </p>
+</footer>
+</main>
+<!-- Bottom Decorative Layer -->
+<div class="fixed bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent blur-sm"></div>
+</body></html>
