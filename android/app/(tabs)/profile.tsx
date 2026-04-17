@@ -17,6 +17,12 @@ export default function ProfileScreen() {
   const handlePress = (target: string) => {
     if (target === 'addresses') {
       router.push('/addresses');
+    } else if (target === 'privacy') {
+      router.push('/privacy-security');
+    } else if (target === 'notifications') {
+      router.push('/notifications');
+    } else if (target === 'help') {
+      router.push('/help-support');
     }
     // Other routes can be added here
   };

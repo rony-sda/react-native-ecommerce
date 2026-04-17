@@ -1,262 +1,183 @@
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
-import { BlurView } from 'expo-blur';
-import { LinearGradient } from 'expo-linear-gradient';
-import { router } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import React, { useState } from 'react';
-import {
-    Alert,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
+import React from 'react';
+import { 
+  View, 
+  StyleSheet, 
+  Text, 
+  ScrollView, 
+  TouchableOpacity, 
+  Platform, 
+  Alert 
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { Colors } from '@/constants/theme';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { BlurView } from 'expo-blur';
+import { Image } from 'expo-image';
+import { LinearGradient } from 'expo-linear-gradient';
+import { MaterialIcons } from '@expo/vector-icons';
+import { StatusBar } from 'expo-status-bar';
+import { router } from 'expo-router';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Address {
-  id: string;
-  label: string;
-  subtitle: string;
-  icon: string;
-  street: string;
-  city: string;
-  phone: string;
-  isPrimary?: boolean;
-}
-
-// ─── Mock Data ────────────────────────────────────────────────────────────────
-
-const INITIAL_ADDRESSES: Address[] = [
-  {
-    id: '1',
-    label: 'Home',
-    subtitle: 'Primary Address',
-    icon: 'home',
-    street: '4522 Emerald Heights Blvd, Suite 400',
-    city: 'Silicon Valley, CA 94025',
-    phone: '+1 (555) 012-3456',
-    isPrimary: true,
-  },
-  {
-    id: '2',
-    label: 'Office',
-    subtitle: 'Corporate HQ',
-    icon: 'briefcase',
-    street: 'Infinite Loop 1, Apple Park Way',
-    city: 'Cupertino, CA 95014',
-    phone: '+1 (555) 987-6543',
-  },
-  {
-    id: '3',
-    label: 'Gym',
-    subtitle: 'Daily Routine',
-    icon: 'dumbbell',
-    street: '888 Iron Gate Lane, Fitness District',
-    city: 'Los Angeles, CA 90001',
-    phone: '+1 (555) 246-8135',
-  },
-];
-
-// ─── Colors ───────────────────────────────────────────────────────────────────
-
-export default function SavedAddressesScreen() {
-  const colorScheme = useColorScheme();
-  const theme = Colors[colorScheme ?? 'dark'];
-  const [addresses, setAddresses] = useState<Address[]>(INITIAL_ADDRESSES);
-
-// ─── AddressCard Component ────────────────────────────────────────────────────
+// ─── Address Card Component ──────────────────────────────────────────────────
 
 interface AddressCardProps {
-  address: Address;
-  onEdit: (id: string) => void;
-  onDelete: (id: string) => void;
-  theme: typeof theme;
+  tag: string;
+  name: string;
+  address: string;
+  phone: string;
+  isDefault?: boolean;
 }
 
-const AddressCard: React.FC<AddressCardProps> = ({ address, onEdit, onDelete, theme }) => {
+const AddressCard = ({ tag, name, address, phone, isDefault }: AddressCardProps) => {
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'dark'];
+
   return (
-    <View style={[styles.card, { backgroundColor: theme.surfaceContainer }, address.isPrimary && styles.cardPrimary]}>
-      {/* Header row */}
-      <View style={styles.cardHeader}>
-        <View style={styles.cardLeft}>
-          <View
-            style={[
-              styles.iconBox,
-              { backgroundColor: theme.surfaceHigh },
-              address.isPrimary && styles.iconBoxPrimary,
-            ]}
-          >
-            <MaterialCommunityIcons
-              name={address.icon as any}
-              size={20}
-              color={address.isPrimary ? theme.primary : theme.icon}
-            />
+    <View style={[styles.card, { backgroundColor: theme.surfaceContainer }]}>
+      <View style={styles.cardContent}>
+        <View style={styles.cardHeader}>
+          <View style={[styles.tagBadge, { backgroundColor: theme.primary + '1A' }]}>
+            <Text style={[styles.tagText, { color: theme.primary }]}>{tag.toUpperCase()}</Text>
           </View>
-          <View>
-            <Text style={[styles.cardLabel, { color: theme.text }]}>{address.label}</Text>
-            <Text
-              style={[
-                styles.cardSubtitle,
-                { color: theme.icon },
-                address.isPrimary && styles.cardSubtitlePrimary,
-              ]}
-            >
-              {address.subtitle}
-            </Text>
-          </View>
+          {isDefault && (
+            <MaterialIcons name="verified" size={18} color={theme.primary} />
+          )}
         </View>
 
-        {/* Action buttons */}
-        <View style={styles.actionRow}>
-          <TouchableOpacity
-            style={[styles.actionBtn, { backgroundColor: theme.surfaceHigh }]}
-            onPress={() => onEdit(address.id)}
-            activeOpacity={0.7}
-          >
-            <MaterialCommunityIcons
-              name="pencil-outline"
-              size={18}
-              color={theme.icon}
-            />
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={[styles.actionBtn, { backgroundColor: theme.surfaceHigh }]}
-            onPress={() => onDelete(address.id)}
-            activeOpacity={0.7}
-          >
-            <MaterialCommunityIcons
-              name="delete-outline"
-              size={18}
-              color={theme.icon}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-
-      {/* Address details */}
-      <View style={styles.cardBody}>
-        <Text style={[styles.addressText, { color: theme.icon }]}>
-          {address.street}
-          {'\n'}
-          {address.city}
+        <Text style={[styles.cardName, { color: theme.text }]}>{name}</Text>
+        <Text style={[styles.cardAddress, { color: theme.icon }]} numberOfLines={2}>
+          {address}
         </Text>
-        <View style={styles.phoneRow}>
-          <MaterialCommunityIcons name="phone-outline" size={13} color={theme.icon} />
-          <Text style={[styles.phoneText, { color: theme.icon }]}>{address.phone}</Text>
+        
+        <View style={styles.cardFooter}>
+          <View style={styles.phoneWrapper}>
+            <MaterialIcons name="phone" size={14} color={theme.icon} />
+            <Text style={[styles.phoneText, { color: theme.icon }]}>{phone}</Text>
+          </View>
+          
+          <View style={styles.actionRow}>
+            <TouchableOpacity 
+                style={[styles.actionButton, { backgroundColor: theme.surfaceHigh }]}
+                onPress={() => Alert.alert('Edit', `Editing address for ${name}...`)}
+            >
+              <MaterialIcons name="edit" size={18} color={theme.primary} />
+            </TouchableOpacity>
+            <TouchableOpacity 
+                style={[styles.actionButton, { backgroundColor: theme.surfaceHigh }]}
+                onPress={() => Alert.alert('Delete', `Deleting address for ${name}...`)}
+            >
+              <MaterialIcons name="delete-outline" size={18} color={theme.icon} />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>
   );
 };
 
+// ─── Main Screen ─────────────────────────────────────────────────────────────
 
-
-  const handleEdit = (id: string) => {
-    Alert.alert('Edit', `Editing address ${id}`);
-  };
-
-  const handleDelete = (id: string) => {
-    Alert.alert(
-      'Delete Address',
-      'Are you sure you want to remove this address?',
-      [
-        { text: 'Cancel', style: 'cancel' },
-        {
-          text: 'Delete',
-          style: 'destructive',
-          onPress: () =>
-            setAddresses((prev) => prev.filter((a) => a.id !== id)),
-        },
-      ]
-    );
-  };
-
-  const handleAddNew = () => {
-    Alert.alert('Add Address', 'Open add address form');
-  };
+export default function SavedAddressesScreen() {
+  const colorScheme = useColorScheme();
+  const theme = Colors[colorScheme ?? 'dark'];
 
   return (
     <View style={[styles.container, { backgroundColor: theme.surface }]}>
       <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
 
-      {/* TopAppBar */}
+      {/* Decorative Glows */}
+      <View style={[styles.glowTop, { backgroundColor: theme.primary + '0D' }]} />
+      <View style={[styles.glowBottom, { backgroundColor: theme.primary + '0D' }]} />
+
+      {/* Top Bar */}
       <View style={styles.appBar}>
         <BlurView intensity={80} style={StyleSheet.absoluteFill} tint={colorScheme === 'dark' ? 'dark' : 'light'} />
         <SafeAreaView edges={['top']} style={styles.safeAreaHeader}>
           <View style={styles.headerContent}>
             <View style={styles.headerLeft}>
-              <TouchableOpacity style={styles.iconButton} onPress={() => router.back()} activeOpacity={0.7}>
+              <TouchableOpacity style={styles.iconButton} onPress={() => router.back()}>
                 <MaterialIcons name="arrow-back" size={24} color={theme.primary} />
               </TouchableOpacity>
               <Text style={[styles.headerTitle, { color: theme.primary }]}>SAVED ADDRESSES</Text>
             </View>
-            <TouchableOpacity style={styles.iconButton} onPress={handleAddNew} activeOpacity={0.7}>
-              <MaterialIcons name="add" size={24} color={theme.primary} />
+            <TouchableOpacity style={styles.iconButton} onPress={() => Alert.alert('Add New', 'Opening new address form...')}>
+              <MaterialIcons name="add-location-alt" size={24} color={theme.primary} />
             </TouchableOpacity>
           </View>
         </SafeAreaView>
       </View>
 
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent} 
         showsVerticalScrollIndicator={false}
       >
         {/* Hero Section */}
         <View style={styles.heroSection}>
-          <Text style={[styles.heroKicker, { color: theme.primary }]}>DELIVERY DESTINATIONS</Text>
-          <Text style={[styles.heroTitle, { color: theme.text }]}>YOUR </Text>
-          <View style={styles.gradientTextContainer}>
-            <Text style={[styles.heroTitleHighlight, { color: theme.primary }]}>LOCATIONS</Text>
-          </View>
+          <Text style={[styles.heroLabel, { color: theme.primaryDim }]}>LOGISTICS</Text>
+          <Text style={[styles.heroTitle, { color: theme.text }]}>Delivery Points</Text>
           <Text style={[styles.heroSubtitle, { color: theme.icon }]}>
-            {addresses.length} saved addresses for seamless delivery.
+            Manage your saved locations for faster checkout and precise shipping.
           </Text>
         </View>
 
-        {/* Address Cards */}
-        <View style={styles.listContainer}>
-          {addresses.map((addr) => (
-            <AddressCard
-              key={addr.id}
-              address={addr}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-              theme={theme}
-            />
-          ))}
+        {/* Address List */}
+        <View style={styles.addressList}>
+          <AddressCard 
+            tag="Home"
+            name="Alex Rivers"
+            address="142 Emerald Street, Suite 502, Green District, NY 10012"
+            phone="+1 (555) 902-1422"
+            isDefault={true}
+          />
+
+          <AddressCard 
+            tag="Work"
+            name="Alex Rivers (Tech Solutions)"
+            address="888 Azure Plaza, Floor 14, Financial District, NY 10005"
+            phone="+1 (555) 888-0091"
+          />
+
+          {/* New Address CTA */}
+          <TouchableOpacity 
+            style={[styles.newAddressCard, { borderColor: theme.surfaceHigh }]} 
+            activeOpacity={0.7}
+            onPress={() => Alert.alert('Add New', 'Opening new address form...')}
+          >
+            <View style={[styles.newAddressIconBox, { backgroundColor: theme.surfaceHigh }]}>
+              <MaterialIcons name="add" size={32} color={theme.primary} />
+            </View>
+            <Text style={[styles.newAddressTitle, { color: theme.text }]}>Add New Location</Text>
+            <Text style={[styles.newAddressSubtitle, { color: theme.icon }]}>
+              Securely save a new shipping or billing address.
+            </Text>
+          </TouchableOpacity>
         </View>
 
-        {/* Add New CTA Button */}
-        <TouchableOpacity
-          style={styles.ctaButton}
-          onPress={handleAddNew}
-          activeOpacity={0.85}
-        >
-          <LinearGradient
-            colors={[theme.primary, theme.primaryDim]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.ctaGradient}
-          >
-            <MaterialIcons name="add" size={20} color={theme.background} />
-            <Text style={[styles.ctaButtonText, { color: theme.background }]}>ADD NEW ADDRESS</Text>
-          </LinearGradient>
-        </TouchableOpacity>
+        <View style={{ height: 120 }} />
       </ScrollView>
     </View>
   );
 }
 
-// ─── Styles ───────────────────────────────────────────────────────────────────
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  glowTop: {
+    position: 'absolute',
+    top: -100,
+    right: -100,
+    width: 300,
+    height: 300,
+    borderRadius: 150,
+  },
+  glowBottom: {
+    position: 'absolute',
+    bottom: -100,
+    left: -100,
+    width: 300,
+    height: 300,
+    borderRadius: 150,
   },
   appBar: {
     position: 'absolute',
@@ -282,137 +203,133 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontFamily: 'PlusJakartaSans_700Bold',
     fontSize: 14,
-    letterSpacing: 2,
+    letterSpacing: 1.5,
   },
   iconButton: {
-    padding: 4,
+    padding: 8,
+    borderRadius: 20,
   },
   scrollContent: {
     paddingTop: 120,
-    paddingBottom: 140,
     paddingHorizontal: 24,
   },
   heroSection: {
     marginBottom: 40,
+    paddingLeft: 4,
   },
-  heroKicker: {
+  heroLabel: {
     fontFamily: 'PlusJakartaSans_700Bold',
-    fontSize: 11,
-    letterSpacing: 2.2,
-    marginBottom: 8,
+    fontSize: 12,
+    letterSpacing: 3,
+    marginBottom: 4,
   },
   heroTitle: {
     fontFamily: 'PlusJakartaSans_800ExtraBold',
-    fontSize: 42,
-    lineHeight: 46,
+    fontSize: 36,
     letterSpacing: -1.5,
-  },
-  heroTitleHighlight: {
-    fontFamily: 'PlusJakartaSans_800ExtraBold',
-    fontSize: 42,
-    lineHeight: 46,
-    letterSpacing: -1.5,
-  },
-  gradientTextContainer: {
-    flexDirection: 'row',
+    marginBottom: 12,
   },
   heroSubtitle: {
     fontFamily: 'Inter_400Regular',
-    fontSize: 15,
+    fontSize: 14,
     lineHeight: 22,
-    marginTop: 12,
-    width: '90%',
-    opacity: 0.8,
+    maxWidth: '85%',
   },
-  listContainer: {
-    gap: 16,
+  addressList: {
+    gap: 20,
   },
   card: {
-    borderRadius: 20,
-    padding: 16,
-    borderWidth: 0.5,
+    borderRadius: 28,
+    padding: 24,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOpacity: 0.1,
+    shadowRadius: 15,
+    shadowOffset: { width: 0, height: 10 },
   },
-  cardPrimary: {
-    borderColor: 'rgba(115, 255, 188, 0.3)',
+  cardContent: {
+    flex: 1,
   },
   cardHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 14,
-  },
-  cardLeft: {
-    flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
+    marginBottom: 16,
   },
-  iconBox: {
-    width: 44,
-    height: 44,
-    borderRadius: 14,
-    alignItems: 'center',
-    justifyContent: 'center',
+  tagBadge: {
+    paddingHorizontal: 10,
+    paddingVertical: 4,
+    borderRadius: 8,
   },
-  iconBoxPrimary: {
-    backgroundColor: 'rgba(115, 255, 188, 0.15)',
-  },
-  cardLabel: {
-    fontFamily: 'PlusJakartaSans_700Bold',
-    fontSize: 16,
-    marginBottom: 2,
-  },
-  cardSubtitle: {
-    fontFamily: 'Inter_600SemiBold',
-    fontSize: 11,
+  tagText: {
+    fontFamily: 'Inter_700Bold',
+    fontSize: 10,
     letterSpacing: 1,
   },
-  cardSubtitlePrimary: {
-    color: '#73ffbc',
+  cardName: {
+    fontFamily: 'PlusJakartaSans_700Bold',
+    fontSize: 18,
+    marginBottom: 6,
+  },
+  cardAddress: {
+    fontFamily: 'Inter_400Regular',
+    fontSize: 14,
+    lineHeight: 22,
+    marginBottom: 20,
+    opacity: 0.8,
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 4,
+  },
+  phoneWrapper: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  phoneText: {
+    fontFamily: 'Inter_500Medium',
+    fontSize: 12,
   },
   actionRow: {
     flexDirection: 'row',
     gap: 8,
   },
-  actionBtn: {
-    padding: 8,
-    borderRadius: 10,
-  },
-  cardBody: {
-    gap: 8,
-  },
-  addressText: {
-    fontFamily: 'Inter_400Regular',
-    fontSize: 14,
-    lineHeight: 20,
-  },
-  phoneRow: {
-    flexDirection: 'row',
+  actionButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    justifyContent: 'center',
     alignItems: 'center',
-    gap: 6,
   },
-  phoneText: {
+  newAddressCard: {
+    marginTop: 20,
+    alignItems: 'center',
+    padding: 32,
+    borderRadius: 28,
+    borderWidth: 2,
+    borderStyle: 'dashed',
+  },
+  newAddressIconBox: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  newAddressTitle: {
+    fontFamily: 'PlusJakartaSans_700Bold',
+    fontSize: 16,
+    marginBottom: 6,
+  },
+  newAddressSubtitle: {
     fontFamily: 'Inter_400Regular',
     fontSize: 12,
-    opacity: 0.7,
-  },
-  ctaButton: {
-    marginTop: 32,
-  },
-  ctaGradient: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 8,
-    borderRadius: 16,
-    paddingVertical: 16,
-    shadowColor: '#73ffbc',
-    shadowOpacity: 0.2,
-    shadowRadius: 20,
-    shadowOffset: { width: 0, height: 4 },
-  },
-  ctaButtonText: {
-    fontFamily: 'PlusJakartaSans_700Bold',
-    fontSize: 13,
-    letterSpacing: 1.5,
-  },
+    textAlign: 'center',
+    opacity: 0.6,
+    maxWidth: '70%',
+  }
 });
