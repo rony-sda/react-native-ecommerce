@@ -39,6 +39,7 @@ const ProductCard = ({ item, staggered }: { item: any; staggered?: boolean }) =>
             staggered && { marginTop: 24 }
         ]} 
         activeOpacity={0.8}
+        onPress={() => router.push('/product-details')}
     >
       <View style={[styles.imageContainer, { backgroundColor: theme.surfaceHigh }]}>
         <Image 

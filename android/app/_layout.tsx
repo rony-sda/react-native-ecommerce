@@ -42,7 +42,6 @@ export default function RootLayout() {
   if (!fontsLoaded && !error) {
     return null;
   }
-
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack initialRouteName="(tabs)">
@@ -56,6 +55,9 @@ export default function RootLayout() {
         <Stack.Screen name="live-chat" options={{ headerShown: false }} />
         <Stack.Screen name="add-payment-method" options={{ headerShown: false }} />
         <Stack.Screen name="search-results" options={{ headerShown: false }} />
+        <Stack.Screen name="product-details" options={{ headerShown: false }} />
+        <Stack.Screen name="checkout" options={{ headerShown: false }} />
+        <Stack.Screen name="orders" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
       </Stack>
       <StatusBar style="auto" />

@@ -97,7 +97,11 @@ const ProductCard = ({
   onAdd: (id: string) => void;
 }) => (
   <View style={[styles.productCard, { marginTop: product.offset > 0 ? product.offset : 0 }]}>
-    <View style={styles.productImageBox}>
+    <TouchableOpacity 
+      style={styles.productImageBox}
+      activeOpacity={0.9}
+      onPress={() => router.push('/product-details')}
+    >
       <Image
         source={{ uri: product.image }}
         style={styles.productImage}
@@ -110,7 +114,7 @@ const ProductCard = ({
       >
         <MaterialCommunityIcons name="plus" size={20} color={C.onPrimary} />
       </TouchableOpacity>
-    </View>
+    </TouchableOpacity>
     <Text style={styles.productName}>{product.name}</Text>
     <Text style={styles.productSubtitle}>{product.subtitle}</Text>
     <Text style={styles.productPrice}>{product.price}</Text>

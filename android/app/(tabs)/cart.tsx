@@ -248,7 +248,11 @@ export default function CartScreen() {
           end={{ x: 1, y: 1 }}
           style={styles.checkoutGradient}
         >
-          <TouchableOpacity style={styles.checkoutBtn} activeOpacity={0.85}>
+          <TouchableOpacity 
+            style={styles.checkoutBtn} 
+            activeOpacity={0.85}
+            onPress={() => router.push('/checkout/address')}
+          >
             <Text style={styles.checkoutText}>Proceed to Checkout</Text>
             <Text style={styles.checkoutArrow}>→</Text>
           </TouchableOpacity>
