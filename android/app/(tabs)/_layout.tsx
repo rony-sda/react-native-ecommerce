@@ -33,7 +33,7 @@ function CustomTabBar({ state, descriptors, navigation }: any) {
             };
 
             let iconName: any = 'grid-view';
-            if (route.name === 'index') iconName = 'local-mall';
+            if (route.name === 'cart') iconName = 'shopping-cart';
             if (route.name === 'favorites') iconName = 'favorite';
             if (route.name === 'profile') iconName = 'person';
 
@@ -75,8 +75,8 @@ export default function TabLayout() {
       screenOptions={{ headerShown: false }}
       tabBar={(props) => <CustomTabBar {...props} />}
     >
-      <Tabs.Screen name="dashboard" options={{ title: 'Dashboard' }} />
-      <Tabs.Screen name="index" options={{ title: 'Shop' }} />
+      <Tabs.Screen name="index" options={{ title: 'index' }} />
+      <Tabs.Screen name="cart" options={{ title: 'cart' }} />
       <Tabs.Screen name="favorites" options={{ title: 'Favorites' }} />
       <Tabs.Screen name="profile" options={{ title: 'Profile' }} />
     </Tabs>
