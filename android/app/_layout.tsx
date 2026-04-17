@@ -55,6 +55,7 @@ export default function RootLayout() {
         <Stack.Screen name="chat-history" options={{ headerShown: false }} />
         <Stack.Screen name="live-chat" options={{ headerShown: false }} />
         <Stack.Screen name="add-payment-method" options={{ headerShown: false }} />
+        <Stack.Screen name="search-results" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
       </Stack>
       <StatusBar style="auto" />

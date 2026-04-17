@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#006d47",
+                        "error": "#ff716c",
+                        "outline": "#767575",
+                        "on-secondary": "#005d48",
+                        "on-secondary-fixed": "#004938",
+                        "primary-dim": "#63f0af",
+                        "on-primary-fixed": "#004b30",
+                        "tertiary-fixed-dim": "#00d1ec",
+                        "secondary-container": "#006b54",
+                        "on-background": "#ffffff",
+                        "secondary-fixed": "#5efcce",
+                        "inverse-surface": "#fcf9f8",
+                        "secondary": "#5efcce",
+                        "surface-variant": "#262626",
+                        "primary": "#73ffbc",
+                        "on-surface-variant": "#adaaaa",
+                        "surface-bright": "#2c2c2c",
+                        "secondary-dim": "#4cedc1",
+                        "primary-fixed-dim": "#63f0af",
+                        "tertiary-container": "#00e0fd",
+                        "on-primary-container": "#002918",
+                        "background": "#0e0e0e",
+                        "surface": "#0e0e0e",
+                        "secondary-fixed-dim": "#4cedc1",
+                        "outline-variant": "#484847",
+                        "surface-container-highest": "#262626",
+                        "primary-container": "#0eb77b",
+                        "on-surface": "#ffffff",
+                        "surface-container-high": "#20201f",
+                        "surface-container": "#1a1a1a",
+                        "on-secondary-fixed-variant": "#006851",
+                        "on-tertiary-fixed-variant": "#005561",
+                        "tertiary-dim": "#00d1ec",
+                        "surface-container-lowest": "#000000",
+                        "surface-dim": "#0e0e0e",
+                        "tertiary-fixed": "#00e0fd",
+                        "tertiary": "#7de9ff",
+                        "inverse-on-surface": "#565555",
+                        "on-primary": "#00603e",
+                        "on-tertiary-fixed": "#00363e",
+                        "on-primary-fixed-variant": "#006b46",
+                        "on-tertiary": "#005561",
+                        "primary-fixed": "#73ffbc",
+                        "on-secondary-container": "#dffff1",
+                        "on-tertiary-container": "#004b56",
+                        "surface-container-low": "#131313",
+                        "error-container": "#9f0519",
+                        "on-error-container": "#ffa8a3",
+                        "error-dim": "#d7383b",
+                        "surface-tint": "#73ffbc",
+                        "on-error": "#490006"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-shift-surface-container-low {
+            background-color: rgba(19, 19, 19, 0.7);
+        }
+        body {
+            background-color: #0e0e0e;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0e0e0e]/70 backdrop-blur-3xl">
+<div class="flex justify-between items-center px-6 py-4 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#3CCF91] cursor-pointer" data-icon="arrow_back">arrow_back</span>
+<h1 class="font-['Plus_Jakarta_Sans'] font-bold text-lg tracking-tight text-[#3CCF91]">Search Results</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#3CCF91] cursor-pointer" data-icon="tune">tune</span>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-6">
+<!-- Search & Sort Interaction Area -->
+<div class="mb-8 space-y-4">
+<div class="relative">
+<div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" data-icon="search">search</span>
+</div>
+<input class="w-full bg-surface-container-highest text-on-surface border-none rounded-xl py-4 pl-12 pr-4 focus:ring-1 focus:ring-primary/40 focus:bg-surface-bright transition-all font-body text-sm" readonly="" type="text" value="Mechanical Keyboards"/>
+</div>
+<!-- Sort By Button -->
+<button class="flex items-center gap-2 bg-surface-container-low px-4 py-2.5 rounded-full border border-outline-variant/20 hover:bg-surface-container-highest transition-colors active:scale-95 duration-200">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="sort">sort</span>
+<span class="text-on-surface font-medium text-sm">Sort By: Popularity</span>
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="expand_more">expand_more</span>
+</button>
+</div>
+<!-- Product Grid (2-column) -->
+<div class="grid grid-cols-2 gap-4 mb-12">
+<!-- Product 1 -->
+<div class="bg-surface-container rounded-xl overflow-hidden group">
+<div class="aspect-square bg-surface-container-highest relative">
+<img class="w-full h-full object-cover" data-alt="minimalist black mechanical keyboard with custom emerald green keycaps on a dark textured desk mat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFiddCs6JCSVwROcVZKzU0xOzolkcqr7L8iEsSHgzqhPo2r0F3KXdMAzaI2OKHulRJoAJ9ToncX8yersWIdbk2vvrKuHGU-4FlRrMmzCVypewBTHELMdA1Q0OwoXWaO42am5f64oMGy6ABW_y229IkTp9TDnyIB7zG1kB7yj1tcyWpoatSJz6QrWcqMcCwFP574DEECpKEYuuJfMPDZwEhI3c-Uo_3GrVD82uOpuqdHXC6-1YA0408Mye-FHzE5qIBA7M4es3_-g"/>
+<div class="absolute top-2 right-2 p-1.5 bg-background/40 backdrop-blur-md rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="favorite" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+</div>
+<div class="p-3">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-1 line-clamp-1">Stealth Ops K6</h3>
+<p class="text-on-surface-variant text-xs mb-2">Linear Switches</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-extrabold text-primary">$189.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] text-on-surface-variant">4.9</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 2 -->
+<div class="bg-surface-container rounded-xl overflow-hidden group">
+<div class="aspect-square bg-surface-container-highest relative">
+<img class="w-full h-full object-cover" data-alt="close up of premium silver aluminum keyboard chassis with rgb lighting reflecting on dark glass surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3ALpdpCBHRPXA6a3w6Lxkeo4cPEwizxQeLkjLMAidkbxr-v2Cp0zqL3wAirzK1hb9BLButgDVloKcx0v3fcm6aAqRD_nVNHSDCCVSjnw5GBhlEDBsSh4BbWBlasHrV0XIaKWY1cYr-zc7FjHp6gZWP4NmsE7dZeul7tu2FilIfzmorHixrb-ej05NkjyXJyaWTAtQlR65_oZC_eBkWYTcaCKk8RqmazKf4MDU0kl_gbwrkeRCAM3Bn_0dky1zE9U5NGHyUo8KeQ"/>
+</div>
+<div class="p-3">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-1 line-clamp-1">Lunar Slate Pro</h3>
+<p class="text-on-surface-variant text-xs mb-2">Tactile Switches</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-extrabold text-primary">$215.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] text-on-surface-variant">4.8</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 3 -->
+<div class="bg-surface-container rounded-xl overflow-hidden group">
+<div class="aspect-square bg-surface-container-highest relative">
+<img class="w-full h-full object-cover" data-alt="mechanical keyboard keycaps in shades of forest green and deep grey with custom calligraphy symbols" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzyJnSlKiOhHx1SmUwUgE9TfcQrTpRNze2Dn5IaQvaGXc2XYbNHrq5LqG2s5uZdFVq6fU4p0p5XG4R-98E0PbQEHLIt0azO2-f5uNb-anXyIe8h8vOp9ty_YYj8wTfxjkLXjF0_Us5CFvq7iMLglq-CR-hXnX02G9Y-8Xb0XaZ-x1mZVQGKK7JNTkhSzgea8IZ2rZaHLMDdgCdPHdtpBJPbTZ4fs7HTRxOvQjRJ5x_u_VBcLZOMObbxqZlUnK1zwJA4zDxoQVr5g"/>
+</div>
+<div class="p-3">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-1 line-clamp-1">Forest Keycap Set</h3>
+<p class="text-on-surface-variant text-xs mb-2">PBT Doubleshot</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-extrabold text-primary">$85.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] text-on-surface-variant">5.0</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Product 4 -->
+<div class="bg-surface-container rounded-xl overflow-hidden group">
+<div class="aspect-square bg-surface-container-highest relative">
+<img class="w-full h-full object-cover" data-alt="professional workspace featuring dark wood desk, mechanical keyboard, and soft ambient emerald neon lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQyZ0aJefzMgaKv4kvm5RWb3v_piwyxcKsoATTl1_lzUfgWLLx6zog0fdtGLXyUgWVjpAxXQb8rDZw4YqV64ggpMCmmATaKohrWqubyBDQnxaNQ6fEB5gE-FiHHojzOMLS4Uqqi0tCSxxfFInvo5toDVdXLSZSE44idjv0RHf61fofgnedDo3VzJEMUB5wb4mn9oK1m1vFrr_SYNADgNsiUz7_O_iRM8_Yf4ynme0XK7C-_9HYO6tlhpNpv5SKneeeq8inEK1NTg"/>
+</div>
+<div class="p-3">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-1 line-clamp-1">Vector v2 Case</h3>
+<p class="text-on-surface-variant text-xs mb-2">Anodized CNC</p>
+<div class="flex justify-between items-center">
+<span class="font-headline font-extrabold text-primary">$349.00</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px] text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-[10px] text-on-surface-variant">4.7</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Sorting Overlay / Modal -->
+<div class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm flex flex-col justify-end">
+<!-- Close area -->
+<div class="flex-grow"></div>
+<!-- Modal Content -->
+<div class="bg-surface-container-high rounded-t-[2.5rem] px-6 pt-10 pb-12 shadow-[0_-12px_40px_rgba(0,0,0,0.5)] border-t border-outline-variant/10">
+<div class="flex justify-between items-center mb-8">
+<h2 class="font-headline font-bold text-xl text-on-surface">Sort By</h2>
+<div class="w-12 h-1.5 bg-outline-variant/30 rounded-full"></div>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors" data-icon="close">close</span>
+</div>
+<div class="space-y-2">
+<!-- Option: Popularity (Selected) -->
+<div class="flex justify-between items-center bg-surface-container-highest/50 px-5 py-4 rounded-2xl border border-primary/20">
+<span class="font-body font-semibold text-[#3CCF91]">Popularity</span>
+<span class="material-symbols-outlined text-[#3CCF91]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<!-- Option: Newest -->
+<div class="flex justify-between items-center px-5 py-4 rounded-2xl hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="font-body font-medium text-on-surface group-hover:text-primary">Newest</span>
+</div>
+<!-- Option: Price Low to High -->
+<div class="flex justify-between items-center px-5 py-4 rounded-2xl hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="font-body font-medium text-on-surface group-hover:text-primary">Price: Low to High</span>
+</div>
+<!-- Option: Price High to Low -->
+<div class="flex justify-between items-center px-5 py-4 rounded-2xl hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="font-body font-medium text-on-surface group-hover:text-primary">Price: High to Low</span>
+</div>
+<!-- Option: Customer Rating -->
+<div class="flex justify-between items-center px-5 py-4 rounded-2xl hover:bg-surface-container-highest transition-colors cursor-pointer group">
+<span class="font-body font-medium text-on-surface group-hover:text-primary">Customer Rating</span>
+</div>
+</div>
+<button class="w-full mt-8 bg-gradient-to-br from-[#73ffbc] to-[#0eb77b] text-[#0e0e0e] font-headline font-bold py-4 rounded-xl active:scale-[0.98] transition-transform">
+                Apply Filters
+            </button>
+</div>
+</div>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-6 pb-8 pt-4 bg-[#0e0e0e]/70 backdrop-blur-3xl z-50 rounded-t-3xl shadow-[0_-8px_32px_rgba(115,255,188,0.08)]">
+<div class="flex flex-col items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-gradient-to-br from-[#73ffbc] to-[#0eb77b] text-[#0e0e0e] rounded-2xl p-3 active:scale-90 duration-300 cursor-pointer">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</div>
+<div class="flex flex-col items-center justify-center text-[#adaaaa] p-3 hover:text-[#3CCF91] transition-all cursor-pointer">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+</div>
+</nav>
+</body></html>

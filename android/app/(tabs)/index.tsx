@@ -15,6 +15,7 @@ import {
   View
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { router } from 'expo-router';
 
 const { width: SCREEN_WIDTH } = Dimensions.get('window');
 const CARD_WIDTH = (SCREEN_WIDTH - 48) / 2; // 2 columns, 16px padding each side + 16px gap
@@ -145,7 +146,10 @@ export default function HomeScreen() {
           <View style={styles.headerContent}>
             <Text style={[styles.headerTitle, { color: theme.primary }]}>Expo Shop</Text>
             
-            <TouchableOpacity style={styles.iconButton}>
+            <TouchableOpacity 
+                style={styles.iconButton}
+                onPress={() => router.push('/search')}
+            >
               <MaterialIcons name="search" size={24} color={theme.primary} />
             </TouchableOpacity>
           </View>
